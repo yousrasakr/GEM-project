@@ -29,7 +29,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-local-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,.up.railway.app').split(',')
+# Temporary ALLOWED_HOSTS for Cloudflare quick tunnel
+ALLOWED_HOSTS = os.getenv(
+    'ALLOWED_HOSTS',
+    '*'
+).split(',')
+
 
 
 # Application definition
@@ -83,10 +88,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-  'default': dj_database_url.config( 
-        default=f'sqlite:///{BASE_DIR / "db.sqlite3"}', 
-        conn_max_age=600, 
-    ) 
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
