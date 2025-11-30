@@ -6,7 +6,7 @@ from pathlib import Path
 import os
 # We are keeping these imports even though we aren't using them for SQLite, 
 # as they don't hurt and you can re-add your PostgreSQL logic later.
-import dj_database_url 
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # --- FIX: Changed _file_ to __file__ ---
