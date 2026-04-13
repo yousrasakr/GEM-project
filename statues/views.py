@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Statue
 from .serializers import StatueSerializer
+from django.views.decorators.csrf import csrf_exempt
 
 class StatueViewSet(viewsets.ModelViewSet):
     queryset = Statue.objects.all()
@@ -11,6 +12,7 @@ import requests
 import json
 from django.http import JsonResponse
 
+@csrf_exempt
 def chatbot(request):
     if request.method != "POST":
         return JsonResponse({"error": "Only POST method allowed"}, status=405)
