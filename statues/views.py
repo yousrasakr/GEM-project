@@ -115,3 +115,8 @@ def speak(request):
 
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+    
+    #end points : GET    /api/statues/
+#GET    /api/statues/{id}/
+#POST   /api/chatbot/
+#POST   /api/speak/

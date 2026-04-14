@@ -117,6 +117,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    # --- ADD THE PYTHONANYWHERE URL FOR CROSS-ORIGIN TESTING ---
-    f'http://{os.getenv("ALLOWED_HOSTS", "yourusername.pythonanywhere.com").split(",")[0]}'
+    "http://localhost:5173",
 ]
+    # --- ADD THE PYTHONANYWHERE URL FOR CROSS-ORIGIN TESTING ---
+f'http://{os.getenv("ALLOWED_HOSTS", "yourusername.pythonanywhere.com").split(",")[0]}'
